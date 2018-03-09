@@ -16,22 +16,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "purple": UIColor.purple, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
     var pickerData : [String] = [String]()
     var currentPub : Publication!
-    var matches = [Match]()
-    var matchHandler : ExampleMatchHandler? = nil
+//    var matchHandler : ExampleMatchHandler? = nil
     
     override func viewDidLoad() {
-        matchHandler = ExampleMatchHandler({ matches, _ in
-            // Color the background according to the match
-            print("WE HAVE A MATCH")
-            guard let properties = matches.last?.publication?.properties else {
-                print("No properties.")
-                return
-            }
-            let color = properties["color"] as? String
-            print("COLOR IS ")
-            print(color ?? "NO COLOR")
-            self.view.backgroundColor = self.colors[color!]
-        })
+//        matchHandler = ExampleMatchHandler({ matches, _ in
+//            // Color the background according to the match
+//            print("WE HAVE A MATCH")
+//            guard let properties = matches.last?.publication?.properties else {
+//                print("No properties.")
+//                return
+//            }
+//            let color = properties["color"] as? String
+//            print("COLOR IS ")
+//            print(color ?? "NO COLOR")
+//            self.view.backgroundColor = self.colors[color!]
+//        })
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("SUPPRESSION")
@@ -48,18 +47,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
         pickerData = ["yellow", "red", "purple", "orange", "magenta", "lightgray", "green", "cyan"]
         
-        MatchMore.matchDelegates += self.matchHandler!
-        
-        // Polling
-        MatchMore.startPollingMatches(pollingTimeInterval: 5)
-        self.createPollingSubscription()
-        
-        // Socket (requires world_id)
-        MatchMore.startListeningForNewMatches()
-        self.createSocketSubscription()
-        
-        // Fill with cached data
-        self.matches = MatchMore.allMatches
+//        MatchMore.matchDelegates += self.matchHandler!
     }
     @IBAction func changeColor(_ sender: Any) {
         if currentPub != nil {
@@ -109,31 +97,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
-    }
-    
-    func createSocketSubscription() {
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "")
-        subscription.pushers = ["ws"]
-        MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
-            switch result {
-            case .success(let sub):
-                print("🏔 Socket Sub was created 🏔\n\(sub.encodeToJSON())")
-            case .failure(let error):
-                print("🌋 \(String(describing: error?.message)) 🌋")
-            }
-        })
-    }
-    
-    func createPollingSubscription() {
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "")
-        MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
-            switch result {
-            case .success(let sub):
-                print("🏔 Polling Sub was created 🏔\n\(sub.encodeToJSON())")
-            case .failure(let error):
-                print("🌋 \(String(describing: error?.message)) 🌋")
-            }
-        })
     }
 }
 
