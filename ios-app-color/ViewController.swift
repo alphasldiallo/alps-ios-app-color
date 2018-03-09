@@ -74,7 +74,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func createPub() {
         // Create New Publication
         let selectedValue = pickerData[colorPicker.selectedRow(inComponent: 0)]
-        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 2000, duration: 100, properties: ["color": selectedValue]), completion: { result in
+        guard let deviceId = MatchMore.mainDevice?.id else {return}
+        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 2000, duration: 100, properties: ["color": selectedValue, "id": deviceId]), completion: { result in
             switch result {
             case .success(let publication):
                 print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")

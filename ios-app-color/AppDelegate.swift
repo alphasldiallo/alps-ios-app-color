@@ -52,15 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MatchMore.startUpdatingLocation()
             
             //             TEST
-            MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 20, duration: 100, properties: ["color": "yellow"]), completion: { result in
-                switch result {
-                case .success(let publication):
-                    print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")
-                //                    self.currentPub = publication
-                case .failure(let error):
-                    print("🌋 \(String(describing: error?.message)) 🌋")
-                }
-            })
+//            MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 20, duration: 100, properties: ["color": "yellow"]), completion: { result in
+//                switch result {
+//                case .success(let publication):
+//                    print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")
+//                //                    self.currentPub = publication
+//                case .failure(let error):
+//                    print("🌋 \(String(describing: error?.message)) 🌋")
+//                }
+//            })
             }
         return true
         }
@@ -68,7 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Subscriptions
     
     func createSocketSubscription() {
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "")
+        guard let deviceId = MatchMore.mainDevice?.id else {return}
+        print(deviceId)
+        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "id <> '\(deviceId)'")
         subscription.pushers = ["ws"]
         MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
             switch result {
@@ -81,7 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func createPollingSubscription() {
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "")
+        guard let deviceId = MatchMore.mainDevice?.id else {return}
+        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "id <> '\(deviceId)'")
         MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
             switch result {
             case .success(let sub):
