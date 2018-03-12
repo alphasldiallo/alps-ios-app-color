@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C47C50BDA17BEC968E50403EA74F3FDE"
-               BuildableName = "Pods_ios_app_color.framework"
-               BlueprintName = "Pods-ios-app-color"
+               BlueprintIdentifier = "38914ADD08E1456D2901E6690BCDB823"
+               BuildableName = "Pods_alps_ios_app_colorTests.framework"
+               BlueprintName = "Pods-alps-ios-app-colorTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C47C50BDA17BEC968E50403EA74F3FDE"
-            BuildableName = "Pods_ios_app_color.framework"
-            BlueprintName = "Pods-ios-app-color"
+            BlueprintIdentifier = "38914ADD08E1456D2901E6690BCDB823"
+            BuildableName = "Pods_alps_ios_app_colorTests.framework"
+            BlueprintName = "Pods-alps-ios-app-colorTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

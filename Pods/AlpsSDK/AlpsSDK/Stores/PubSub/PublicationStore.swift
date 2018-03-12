@@ -67,7 +67,7 @@ final public class PublicationStore: CRD {
         })
     }
     
-    public func deleteAll(completion: @escaping (ErrorResponse?) -> Void) {
+    func deleteAll(completion: @escaping (ErrorResponse?) -> Void) {
         var lastError: ErrorResponse?
         let dispatchGroup = DispatchGroup()
         items.forEach {

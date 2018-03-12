@@ -1,6 +1,0 @@
-framework module Pods_ios_app_color {
-  umbrella header "Pods-ios-app-color-umbrella.h"
-
-  export *
-  module * { export * }
-}

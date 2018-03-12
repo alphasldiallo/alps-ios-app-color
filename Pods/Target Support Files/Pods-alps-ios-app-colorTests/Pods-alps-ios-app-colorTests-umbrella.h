@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ios_app_colorVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ios_app_colorVersionString[];
+FOUNDATION_EXPORT double Pods_alps_ios_app_colorTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_alps_ios_app_colorTestsVersionString[];
 

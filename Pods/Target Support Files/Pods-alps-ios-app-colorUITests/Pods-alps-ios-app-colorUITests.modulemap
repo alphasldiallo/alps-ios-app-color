@@ -1,0 +1,6 @@
+framework module Pods_alps_ios_app_colorUITests {
+  umbrella header "Pods-alps-ios-app-colorUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
