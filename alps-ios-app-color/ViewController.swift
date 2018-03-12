@@ -13,42 +13,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var publishButton: UIButton!
-    let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "purple": UIColor.purple, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
+    let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
     var pickerData : [String] = [String]()
     var currentPub : Publication!
-//    var matchHandler : ExampleMatchHandler? = nil
     
     override func viewDidLoad() {
-//        matchHandler = ExampleMatchHandler({ matches, _ in
-//            // Color the background according to the match
-//            print("WE HAVE A MATCH")
-//            guard let properties = matches.last?.publication?.properties else {
-//                print("No properties.")
-//                return
-//            }
-//            let color = properties["color"] as? String
-//            print("COLOR IS ")
-//            print(color ?? "NO COLOR")
-//            self.view.backgroundColor = self.colors[color!]
-//        })
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("SUPPRESSION")
-//        // Clear old subs
-//        MatchMore.subscriptions.deleteAll(completion: { (error) in
-//            print("\(String(describing: error?.message))")
-//        })
-//        // Clear old pubs
-//        MatchMore.publications.deleteAll(completion: { (error) in
-//            print("\(String(describing: error?.message))")
-//        })
         self.colorPicker.delegate = self
         self.colorPicker.dataSource = self
-    
-        pickerData = ["yellow", "red", "purple", "orange", "magenta", "lightgray", "green", "cyan"]
-        
-//        MatchMore.matchDelegates += self.matchHandler!
+        pickerData = ["yellow", "red", "orange", "magenta", "lightgray", "green", "cyan"]
     }
+    
     @IBAction func changeColor(_ sender: Any) {
         if currentPub != nil {
             // Deleting previous publication

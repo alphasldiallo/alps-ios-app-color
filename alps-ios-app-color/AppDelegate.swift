@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var exampleMatchHandler: ExampleMatchHandler!
     
-    let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "purple": UIColor.purple, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
+    let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let config = MatchMoreConfig(apiKey: "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiJhbHBzIiwic3ViIjoiZjhhYjRmNjItZjlkMS00YWQxLWJjMjUtMzIyNWMzY2M5NmZjIiwiYXVkIjpbIlB1YmxpYyJdLCJuYmYiOjE1MjA4NTg4MTEsImlhdCI6MTUyMDg1ODgxMSwianRpIjoiMSJ9.yFz-nP8jHde8d6Y_YtOdfSe2_tWqlr1sNzbMhw583Sxf3w8yqNnU3PgpQv9z0_FsdM1Q-pdsrK38YEkZR5Ceeg")
@@ -24,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MatchMore.startUsingMainDevice { result in
             guard case .success(let mainDevice) = result else { print(result.errorMessage ?? ""); return }
             print("🏔 Using device: 🏔\n\(mainDevice.encodeToJSON())")
-            
-            
-            
+
             // Start Monitoring Matches
             self.exampleMatchHandler = ExampleMatchHandler { matches, _ in
                 print("🏔 You've got new matches!!! 🏔\n\(matches.map { $0.publication?.encodeToJSON() })")
@@ -42,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController?.view.backgroundColor = self.colors[color!]
             }
             MatchMore.matchDelegates += self.exampleMatchHandler
+            
             // Polling
             MatchMore.startPollingMatches(pollingTimeInterval: 5)
             self.createPollingSubscription()
@@ -50,23 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MatchMore.startListeningForNewMatches()
             self.createSocketSubscription()
             MatchMore.startUpdatingLocation()
-            
-            //             TEST
-//            MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 20, duration: 100, properties: ["color": "yellow"]), completion: { result in
-//                switch result {
-//                case .success(let publication):
-//                    print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")
-//                //                    self.currentPub = publication
-//                case .failure(let error):
-//                    print("🌋 \(String(describing: error?.message)) 🌋")
-//                }
-//            })
             }
         return true
         }
     
     // Subscriptions
-    
     func createSocketSubscription() {
         guard let deviceId = MatchMore.mainDevice?.id else {return}
         print(deviceId)
@@ -93,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("🌋 \(String(describing: error?.message)) 🌋")
             }
         })
-        
     }
 }
 

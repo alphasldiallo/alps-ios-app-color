@@ -15,4 +15,3 @@ class ExampleMatchHandler: MatchDelegate {
         self.onMatch = onMatch
     }
 }
-

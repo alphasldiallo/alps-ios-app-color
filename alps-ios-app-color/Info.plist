@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>alps needs it</string>
+	<string>Alps needs it</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Alps sdk needs your location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
