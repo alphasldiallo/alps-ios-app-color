@@ -11,6 +11,8 @@ import AlpsSDK
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
+    @IBOutlet weak var rangeSlider: UISlider!
+    @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var publishButton: UIButton!
     var pickerData : [String] = [String]()
@@ -20,6 +22,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         publishButton.layer.cornerRadius = 4
+        rangeLabel.text = "20 m"
+        rangeLabel.layer.masksToBounds = true
+        rangeLabel.layer.cornerRadius = 8
+        rangeLabel.layer.borderColor = UIColor(red: 0/255, green: 150/255, blue: 253/255, alpha: 1).cgColor
+        rangeLabel.layer.borderWidth = 2.0
+        rangeSlider.minimumValue = 1
+        rangeSlider.setValue(20.0, animated: true)
+        rangeSlider.maximumValue = 300
         self.colorPicker.delegate = self
         self.colorPicker.dataSource = self
         pickerData = ["yellow", "red", "orange", "magenta", "lightgray", "green", "cyan", "teal", "pink", "white"]
@@ -41,6 +51,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    @IBAction func rangeSliderChanged(_ sender: Any) {
+        self.rangeLabel.text = "\(Int(rangeSlider.value)) m"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,8 +64,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func createPub() {
         // Create New Publication
         let selectedValue = pickerData[colorPicker.selectedRow(inComponent: 0)]
+        let selectedRange = rangeSlider.value
         guard let deviceId = MatchMore.mainDevice?.id else {return}
-        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 5, duration: 100, properties: ["color": selectedValue, "id": deviceId]), completion: { result in
+        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: Double(Int(selectedRange)), duration: 100, properties: ["color": selectedValue, "id": deviceId]), completion: { result in
             switch result {
             case .success(let publication):
                 print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")
