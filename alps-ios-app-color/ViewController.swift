@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        publishButton.layer.cornerRadius = 4
         self.colorPicker.delegate = self
         self.colorPicker.dataSource = self
         pickerData = ["yellow", "red", "orange", "magenta", "lightgray", "green", "cyan", "teal", "pink", "white"]
@@ -50,7 +51,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Create New Publication
         let selectedValue = pickerData[colorPicker.selectedRow(inComponent: 0)]
         guard let deviceId = MatchMore.mainDevice?.id else {return}
-        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 2000, duration: 100, properties: ["color": selectedValue, "id": deviceId]), completion: { result in
+        MatchMore.createPublicationForMainDevice(publication: Publication(topic: "color", range: 5, duration: 100, properties: ["color": selectedValue, "id": deviceId]), completion: { result in
             switch result {
             case .success(let publication):
                 print("🏔 Pub was created: 🏔\n\(publication.encodeToJSON())")

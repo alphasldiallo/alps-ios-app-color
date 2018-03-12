@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let colors = ["yellow": UIColor.yellow,
                   "red": UIColor(red: 255/255, green: 106/255, blue: 93/255, alpha: 1),
-                  "orange": UIColor.orange,
+                  "orange": UIColor(red: 255/255, green: 172/255, blue: 62/255, alpha: 1),
                   "magenta": UIColor(red: 255/255, green: 116/255, blue: 217/255, alpha: 1),
                   "lightgray": UIColor.lightGray,
                   "green": UIColor(red: 134/255, green: 255/255, blue: 150/255, alpha: 1),
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func createSocketSubscription() {
         guard let deviceId = MatchMore.mainDevice?.id else {return}
         print(deviceId)
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "id <> '\(deviceId)'")
+        let subscription = Subscription(topic: "color", range: 5, duration: 100, selector: "id <> '\(deviceId)'")
         subscription.pushers = ["ws"]
         MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
             switch result {
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func createPollingSubscription() {
         guard let deviceId = MatchMore.mainDevice?.id else {return}
-        let subscription = Subscription(topic: "color", range: 20, duration: 100, selector: "id <> '\(deviceId)'")
+        let subscription = Subscription(topic: "color", range: 5, duration: 100, selector: "id <> '\(deviceId)'")
         MatchMore.createSubscriptionForMainDevice(subscription: subscription, completion: { result in
             switch result {
             case .success(let sub):
