@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
         self.colorPicker.delegate = self
         self.colorPicker.dataSource = self
-        pickerData = ["yellow", "red", "orange", "magenta", "lightgray", "green", "cyan"]
+        pickerData = ["yellow", "red", "orange", "magenta", "lightgray", "green", "cyan", "teal", "pink", "white"]
     }
     
     @IBAction func changeColor(_ sender: Any) {
