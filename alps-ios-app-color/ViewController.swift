@@ -13,7 +13,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var publishButton: UIButton!
-    let colors = ["yellow": UIColor.yellow, "red": UIColor.red, "orange": UIColor.orange, "magenta": UIColor.magenta, "lightgray": UIColor.lightGray, "green": UIColor.green, "cyan": UIColor.cyan]
     var pickerData : [String] = [String]()
     var currentPub : Publication!
     
