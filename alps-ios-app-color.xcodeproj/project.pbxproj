@@ -15,8 +15,6 @@
 		8473635820527D7800C697C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473635620527D7800C697C7 /* Main.storyboard */; };
 		8473635A20527D7800C697C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473635920527D7800C697C7 /* Assets.xcassets */; };
 		8473635D20527D7800C697C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473635B20527D7800C697C7 /* LaunchScreen.storyboard */; };
-		8473636820527D7800C697C7 /* ios_app_colorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473636720527D7800C697C7 /* ios_app_colorTests.swift */; };
-		8473637320527D7800C697C7 /* ios_app_colorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473637220527D7800C697C7 /* ios_app_colorUITests.swift */; };
 		8473638120528D1C00C697C7 /* ExempleMatchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473638020528D1C00C697C7 /* ExempleMatchHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,11 +47,7 @@
 		8473635C20527D7800C697C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473635E20527D7800C697C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473636320527D7800C697C7 /* alps-ios-app-colorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "alps-ios-app-colorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8473636720527D7800C697C7 /* ios_app_colorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_app_colorTests.swift; sourceTree = "<group>"; };
-		8473636920527D7800C697C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473636E20527D7800C697C7 /* alps-ios-app-colorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "alps-ios-app-colorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8473637220527D7800C697C7 /* ios_app_colorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_app_colorUITests.swift; sourceTree = "<group>"; };
-		8473637420527D7800C697C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473638020528D1C00C697C7 /* ExempleMatchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExempleMatchHandler.swift; sourceTree = "<group>"; };
 		8AC30F3812B0E7F813CED5AC /* Pods-alps-ios-app-colorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alps-ios-app-colorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-alps-ios-app-colorUITests/Pods-alps-ios-app-colorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		932AE915B10DD067A9BEBF8E /* Pods-alps-ios-app-color.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alps-ios-app-color.release.xcconfig"; path = "Pods/Target Support Files/Pods-alps-ios-app-color/Pods-alps-ios-app-color.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,8 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				8473635120527D7800C697C7 /* alps-ios-app-color */,
-				8473636620527D7800C697C7 /* alps-ios-app-colorTests */,
-				8473637120527D7800C697C7 /* alps-ios-app-colorUITests */,
 				8473635020527D7800C697C7 /* Products */,
 				C268D2C434716E6D54AE9087 /* Pods */,
 				B7A44BD8D223DA23742D81A4 /* Frameworks */,
@@ -125,24 +117,6 @@
 				8473635E20527D7800C697C7 /* Info.plist */,
 			);
 			path = "alps-ios-app-color";
-			sourceTree = "<group>";
-		};
-		8473636620527D7800C697C7 /* alps-ios-app-colorTests */ = {
-			isa = PBXGroup;
-			children = (
-				8473636720527D7800C697C7 /* ios_app_colorTests.swift */,
-				8473636920527D7800C697C7 /* Info.plist */,
-			);
-			path = "alps-ios-app-colorTests";
-			sourceTree = "<group>";
-		};
-		8473637120527D7800C697C7 /* alps-ios-app-colorUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8473637220527D7800C697C7 /* ios_app_colorUITests.swift */,
-				8473637420527D7800C697C7 /* Info.plist */,
-			);
-			path = "alps-ios-app-colorUITests";
 			sourceTree = "<group>";
 		};
 		B7A44BD8D223DA23742D81A4 /* Frameworks */ = {
@@ -475,7 +449,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8473636820527D7800C697C7 /* ios_app_colorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +456,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8473637320527D7800C697C7 /* ios_app_colorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,12 +606,14 @@
 			baseConfigurationReference = 98DA3C71CC5316BA50FF136A /* Pods-alps-ios-app-color.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PAYVP3AFKX;
 				INFOPLIST_FILE = "alps-ios-app-color/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Matchmore.alps-ios-app-color";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchmore.color;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -650,12 +624,14 @@
 			baseConfigurationReference = 932AE915B10DD067A9BEBF8E /* Pods-alps-ios-app-color.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PAYVP3AFKX;
 				INFOPLIST_FILE = "alps-ios-app-color/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Matchmore.alps-ios-app-color";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchmore.color;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
