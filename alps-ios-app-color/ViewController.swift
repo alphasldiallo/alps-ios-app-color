@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     let colors = ["yellow": UIColor.yellow,
                   "red": UIColor(red: 255/255, green: 106/255, blue: 93/255, alpha: 1),
-                  "orange": UIColor(red: 255/255, green: 172/255, blue: 62/255, alpha: 1),
+                  "orange": UIColor(red: 255/255, green: 179/255, blue: 70/255, alpha: 1),
                   "magenta": UIColor(red: 255/255, green: 116/255, blue: 217/255, alpha: 1),
                   "lightgray": UIColor.lightGray,
                   "green": UIColor(red: 134/255, green: 255/255, blue: 150/255, alpha: 1),
@@ -34,18 +34,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         
         // Start Monitoring Matches
-        self.onMatch = { matches, _ in
+        self.onMatch = { [weak self] matches, _ in
             print("🏔 You've got new matches!!! 🏔\n\(matches.map { $0.publication?.encodeToJSON() })")
             // Color the background according to the match
             let mostRecentDate = matches.max(by: {
                 $0.createdAt! < $1.createdAt!
             })
+            
             guard let properties = mostRecentDate?.publication?.properties else {
                 print("No properties.")
                 return
             }
-            let color = properties["color"] as? String
-            self.view.backgroundColor = self.colors[color!]
+            guard let color = properties["color"] as? String else {return}
+            self?.view.backgroundColor = self?.colors[color]
         }
         MatchMore.matchDelegates += self
         
