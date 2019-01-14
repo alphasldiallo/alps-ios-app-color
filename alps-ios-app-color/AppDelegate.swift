@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let config = MatchMoreConfig(apiKey: "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiJhbHBzIiwic3ViIjoiZjhhYjRmNjItZjlkMS00YWQxLWJjMjUtMzIyNWMzY2M5NmZjIiwiYXVkIjpbIlB1YmxpYyJdLCJuYmYiOjE1MjA4NTg4MTEsImlhdCI6MTUyMDg1ODgxMSwianRpIjoiMSJ9.yFz-nP8jHde8d6Y_YtOdfSe2_tWqlr1sNzbMhw583Sxf3w8yqNnU3PgpQv9z0_FsdM1Q-pdsrK38YEkZR5Ceeg")
+        let config = MatchMoreConfig(apiKey: "YOUR-API-KEY")
         MatchMore.configure(config)
         
         MatchMore.startUsingMainDevice { result in
